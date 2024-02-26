@@ -7,9 +7,13 @@
 
 // Your code:
 const arrayOfMultiples = (num, length) => {
-    // ... write code ...
+    let array = []
+    for (let i = 1; i <= length;i++){
+        array.push(num * i)
+    }
+    return array
 };
-
+console.log(arrayOfMultiples(1.8, 9))
 // 2 =================================
 // Change direction of array
 // TIP: Check if there is function which can help you https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
@@ -20,9 +24,13 @@ const arrayOfMultiples = (num, length) => {
 
 // Your code:
 const changeDirection = (array) => {
-// ... write code ...
+    let reverse = []
+    for (let i = array.length - 1; i >= 0; i--){
+        reverse.push(array[i])
+    }
+    return reverse
 };
-
+console.log(changeDirection([0, 1, 2, 3]))
 // 3 =================================
 // Create function that takes two arrays and return object with two keys - bigger array, sum all numbers
 // Examples
@@ -31,5 +39,21 @@ const changeDirection = (array) => {
 
 // Your code:
 const biggerArray = (array1, array2) => {
-// ... write code ...
+
+    let sum1 = 0
+    let sum2 = 0
+    let length = array1.length > array2.length ? array1.length : array2.length
+
+    for(let i = 0; i < length;i++){
+        if(i < array1.length) sum1 += array1[i]
+        if(i < array2.length) sum2 += array2[i]
+    }
+    function Result(array, sum) {
+        this.array = array
+        this.sum = sum
+    }
+    return sum1 > sum2 ? new Result(array1, sum1) : new Result(array2, sum2)
+
 };
+console.log(biggerArray([1,2,3,4,5], [50,50]))
+console.log(biggerArray([1,2,3], [2,3,4]))

@@ -7,10 +7,9 @@
 // "javascript-is-the-best"
 
 // Your code:
-const parametrize = (input) => {
+const parametrize = (input) => input.toLowerCase().replaceAll(" ", "-")
 
-};
-
+console.log(parametrize("Javascript is the best"))
 // 2 =================================
 // Write function that takes object and return sentence
 // Example:
@@ -19,8 +18,9 @@ const parametrize = (input) => {
 
 // Your code:
 const giveSentenceForPerson = (obj) => {
-
+    console.log(`Hello ${obj.name} from ${obj.location} universe! It is nice to meet you! You look awesome for your ${obj.age}, young ${obj.position}!`)
 };
+giveSentenceForPerson({name: "Bohdan", position: "Programmer", age: 20, location: "Ostrava"})
 
 // 3 =================================
 // Write function that takes string and replace all `a`, `e`, `i`, `o` with *
@@ -28,6 +28,6 @@ const giveSentenceForPerson = (obj) => {
 // replace("Hello Javascript") ➞ "H*ll* J*v*scr*pt"
 
 // Your code:
-const replace = (input) => {
+const replace = (input) => input.replaceAll(/[aeio]/gi, "*")
 
-};
+console.log(replace("Hello World in JavaScript"))
